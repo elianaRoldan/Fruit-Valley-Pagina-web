@@ -150,9 +150,13 @@ export const App = {
     this.openCart();
   },
 
- const item = this.cart.find(
-  i => String(i.id) === String(productId)
-);
+updateQuantity(productId, delta) {
+    const item = this.cart.find(
+      item => String(item.id) === String(productId)
+    );
+
+    if (!item) return;
+
     item.quantity += delta;
 
     if (item.quantity <= 0) {
@@ -164,18 +168,11 @@ export const App = {
   },
 
   removeFromCart(productId) {
-  this.cart = this.cart.filter(
-    item => String(item.id) !== String(productId)
-  );
+    const idToRemove = String(productId);
 
-  this.saveCart();
-
-  this.showToast(
-    'Carrito Actualizado',
-    'Producto removido del pedido.',
-    'info'
-  );
-},
+    this.cart = this.cart.filter(
+      item => String(item.id) !== idToRemove
+    );
 
     this.saveCart();
 
