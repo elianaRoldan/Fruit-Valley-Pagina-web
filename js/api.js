@@ -430,10 +430,60 @@ const normalized = json.data.map((p, i) => ({...p,id: p.id ?? p.ID ?? (i + 1),
   /**
    * Obtiene un producto por su identificador único
    */
-  async getProductById(id) {
-    const products = await this.getProducts('all', '');
-    return products.find(p => p.id === id) || null;
-  },
+async getProductById(id) {
+  const products = await this.getProducts('all', '');
+
+  const matchers = {
+    'harina-durazno': p =>
+      /harina/i.test(p.name) && /durazno/i.test(p.name),
+
+    'harina-pera': p =>
+      /harina/i.test(p.name) && /pera/i.test(p.name),
+
+    'harina-manzana': p =>
+      /harina/i.test(p.name) && /manzana/i.test(p.name),
+
+    'barritas-frutas': p =>
+      /barrita/i.test(p.name),
+
+    'chips-manzana': p =>
+      /manzana/i.test(p.name) && /chip/i.test(p.name),
+
+    'granolas-fruta-deshidratada': p =>
+      /granola/i.test(p.name),
+
+    'mermelada-pasta-fruta': p =>
+      /mermelada/i.test(p.name),
+
+    'polvo-fruta-batidos': p =>
+      /polvo/i.test(p.name),
+
+    'rodajas-pera-deshidratada': p =>
+      /pera/i.test(p.name) && /deshidrat/i.test(p.name),
+
+    'mix-harinas-frutas': p =>
+      /mix/i.test(p.name) && /harina/i.test(p.name),
+
+    'mix-frutas-deshidratadas': p =>
+      /mix/i.test(p.name) && /fruta/i.test(p.name),
+
+    'pack-degustacion': p =>
+      /pack/i.test(p.name) && /degust/i.test(p.name),
+
+    'pack-trio-harinas': p =>
+      /pack/i.test(p.name) && /trio/i.test(p.name)
+  };
+
+  const product = products.find(
+    p => String(p.id) === String(id)
+  );
+
+  if (product) return product;
+
+  const matcher = matchers[String(id)];
+
+  return matcher ? products.find(matcher) || null : null;
+},
 
   /**
    * Guarda (crea o actualiza) un producto
