@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Producto | Fruit Valley Patagonia</title>
+    <meta name="description" content="Información nutricional, ingredientes y compra online de productos naturales Fruit Valley Patagonia." />
+    <meta property="og:title" content="Detalle de Producto | Fruit Valley Patagonia" />
+    <meta property="og:type" content="product" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- Announcement Bar -->
+    <div class="fvp-announcement-bar">
+      <span>🏔️ Despachos directos desde el Alto Valle de Río Negro · Código: <strong>PATAGONIA10</strong> para 10% OFF</span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg fvp-navbar">
+        <div class="container">
+          <a class="fvp-brand" href="index.html">
+            <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
+            <div class="fvp-brand-text">
+              <span class="fvp-brand-title">Fruit Valley</span>
+              <span class="fvp-brand-subtitle">Patagonia</span>
+            </div>
+          </a>
+
+          <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-2">
+            <button class="btn btn-sm btn-outline-secondary btn-search-trigger" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Buscar">
+              <i class="bi bi-search"></i>
+            </button>
+            <button class="btn btn-sm btn-patagonia position-relative cart-toggle-btn" aria-label="Ver Canasta">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count-badge fvp-cart-count-badge" style="display: none;">0</span>
+            </button>
+          </div>
+
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+            <ul class="navbar-nav gap-lg-2 py-3 py-lg-0">
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link active" href="servicios.html">Productos</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="galeria.html">Galería</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="blog.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="d-none d-lg-flex align-items-center gap-3">
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 btn-search-trigger d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="bi bi-search text-muted"></i>
+              <span class="small text-muted">Buscar...</span>
+            </button>
+            <button class="btn btn-patagonia position-relative cart-toggle-btn d-flex align-items-center gap-2">
+              <i class="bi bi-bag-heart"></i>
+              <span class="d-none d-xl-inline small">Canasta</span>
+              <span class="cart-count-badge fvp-cart-count-badge" style="display: none;">0</span>
+            </button>
+            <div id="nav-user-container"></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="py-5" style="background-color: var(--fvp-sand);">
+      <div class="container" id="pdp-main-container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+          <ol class="breadcrumb small">
+            <li class="breadcrumb-item"><a href="index.html" class="text-success text-decoration-none">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="servicios.html" class="text-success text-decoration-none">Productos</a></li>
+            <li class="breadcrumb-item active text-dark" id="pdp-breadcrumb-name" aria-current="page">Cargando producto...</li>
+          </ol>
+        </nav>
+
+        <!-- PDP Contiguous Purchase Module -->
+        <div class="row g-5">
+          <!-- Columna Izquierda: Galería de Imágenes -->
+          <div class="col-lg-6">
+            <div class="fvp-pdp-gallery-main shadow-sm">
+              <img id="pdp-main-image" src="/assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Producto Fruit Valley Patagonia" class="img-fluid" />
+            </div>
+
+            <!-- Miniaturas -->
+            <div class="fvp-pdp-thumbs" id="pdp-thumbs-container">
+              <!-- Renderizado dinámico -->
+            </div>
+
+            <div class="p-3 bg-white rounded-3 border mt-3 small text-muted d-flex align-items-center gap-3">
+              <i class="bi bi-shield-check text-success fs-3"></i>
+              <div>
+                <strong class="text-dark d-block">Garantía de Frescura Patagónica</strong>
+                Elaborado en pequeñas partidas para asegurar textura y aroma intactos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Módulo de Compra Contiguo -->
+          <div class="col-lg-6">
+            <div class="bg-white p-4 p-md-5 rounded-4 border shadow-sm">
+              <!-- Categoría y Badge -->
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-uppercase text-muted fw-bold small letter-spacing" id="pdp-category-name">Categoría</span>
+                <span class="badge bg-success" id="pdp-badge-tag">100% Natural</span>
+              </div>
+
+              <!-- Título del Producto -->
+              <h1 class="h2 fw-bold text-dark mb-2" id="pdp-title">Nombre del Producto</h1>
+              <div class="small text-muted mb-3" id="pdp-unit-weight">Presentación</div>
+
+              <!-- Precio -->
+              <div class="d-flex align-items-baseline gap-2 mb-4 pb-3 border-bottom">
+                <span class="fs-1 fw-bold text-success font-mono" id="pdp-price">$0</span>
+                <span class="text-muted small">IVA incluido · Envíos a todo el país</span>
+              </div>
+
+              <!-- Selector de Presentaciones / Variantes -->
+              <div class="mb-4">
+                <label class="form-label fw-bold text-dark small mb-2">Seleccionar Presentación:</label>
+                <div class="d-flex flex-wrap gap-2" id="pdp-variant-selector">
+                  <button type="button" class="btn btn-sm btn-outline-success active variant-btn" data-variant="standard">Envase Estándar</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary variant-btn" data-variant="pack3">Pack x3 (Ahorro 10%)</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary variant-btn" data-variant="box">Caja Mayorista (12 un.)</button>
+                </div>
+              </div>
+
+              <!-- Selector de Cantidad y Botón Comprar -->
+              <div class="row g-3 align-items-center mb-4">
+                <div class="col-auto">
+                  <label class="form-label small text-muted mb-1 d-block">Cantidad:</label>
+                  <div class="d-flex align-items-center border rounded-2 bg-light">
+                    <button class="btn btn-sm px-3 py-2 border-0 text-dark fw-bold" id="pdp-qty-minus">-</button>
+                    <span class="px-2 font-mono fw-bold text-dark" id="pdp-qty-val">1</span>
+                    <button class="btn btn-sm px-3 py-2 border-0 text-dark fw-bold" id="pdp-qty-plus">+</button>
+                  </div>
+                </div>
+                <div class="col">
+                  <label class="form-label small text-muted mb-1 d-block">&nbsp;</label>
+                  <button class="btn btn-patagonia btn-lg w-100 fw-bold d-flex align-items-center justify-content-center gap-2" id="pdp-add-to-cart-btn">
+                    <i class="bi bi-cart-plus-fill"></i>
+                    <span>Agregar a la Canasta</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Compra directa por WhatsApp -->
+              <button class="btn btn-outline-success w-100 mb-4 d-flex align-items-center justify-content-center gap-2" id="pdp-whatsapp-btn">
+                <i class="bi bi-whatsapp"></i>
+                <span>Comprar directamente por WhatsApp</span>
+              </button>
+
+              <!-- Resumen Rápido de Stock -->
+              <div class="d-flex align-items-center gap-2 small text-success">
+                <i class="bi bi-check-circle-fill"></i>
+                <span id="pdp-stock-status">En stock para despacho inmediato</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestañas de Información Detallada (Tabs) -->
+        <div class="bg-white rounded-4 border p-4 p-md-5 mt-5 shadow-sm">
+          <ul class="nav nav-tabs border-bottom mb-4" id="productTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active fw-bold text-dark" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc-pane" type="button" role="tab">Descripción</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold text-dark" id="ingred-tab" data-bs-toggle="tab" data-bs-target="#ingred-pane" type="button" role="tab">Ingredientes Limpios</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold text-dark" id="nutri-tab" data-bs-toggle="tab" data-bs-target="#nutri-pane" type="button" role="tab">Información Nutricional</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link fw-bold text-dark" id="recipes-tab" data-bs-toggle="tab" data-bs-target="#recipes-pane" type="button" role="tab">Ideas de Uso & Recetas</button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="productTabContent">
+            <!-- Pestaña 1: Descripción -->
+            <div class="tab-pane fade show active" id="desc-pane" role="tabpanel">
+              <h5 class="fw-bold font-serif mb-3 text-dark">Sobre este producto patagónico</h5>
+              <p class="text-muted" id="pdp-tab-desc">Descripción...</p>
+              <div class="row g-3 mt-3">
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <strong class="d-block text-dark small mb-1"><i class="bi bi-tree text-success me-1"></i>Origen Genuino</strong>
+                    <span class="small text-muted">Frutas del Alto Valle de Río Negro, Patagonia Argentina.</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <strong class="d-block text-dark small mb-1"><i class="bi bi-slash-circle text-danger me-1"></i>Sin Conservantes</strong>
+                    <span class="small text-muted">El único ingrediente es la fruta pura deshidratada.</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <strong class="d-block text-dark small mb-1"><i class="bi bi-recycle text-info me-1"></i>Empaque Sustentable</strong>
+                    <span class="small text-muted">Bolsa doypack hermética con cierre zipper reutilizable.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pestaña 2: Ingredientes -->
+            <div class="tab-pane fade" id="ingred-pane" role="tabpanel">
+              <h5 class="fw-bold font-serif mb-3 text-dark">Lista de Ingredientes 100% Puros</h5>
+              <p class="text-muted fs-6" id="pdp-tab-ingredients">Ingredientes...</p>
+              <div class="alert alert-success d-flex align-items-center gap-2 small">
+                <i class="bi bi-patch-check-fill fs-5"></i>
+                <div>
+                  <strong>Etiqueta Limpia (Clean Label):</strong> No utilizamos jarabe de maíz de alta fructosa (JMAF), conservantes sorbato/benzoato, colorantes sintéticos ni aromatizantes.
+                </div>
+              </div>
+            </div>
+
+            <!-- Pestaña 3: Nutrición -->
+            <div class="tab-pane fade" id="nutri-pane" role="tabpanel">
+              <h5 class="fw-bold font-serif mb-3 text-dark">Tabla Nutricional de Referencia</h5>
+              <div class="table-responsive" style="max-width: 600px;">
+                <table class="table table-bordered table-striped fvp-nutrition-table mb-0">
+                  <tbody id="pdp-nutrition-tbody">
+                    <!-- Inyectado dinámicamente -->
+                  </tbody>
+                </table>
+              </div>
+              <small class="text-muted d-block mt-2">* Valores diarios basados en una dieta de 2.000 kcal u 8.400 kJ.</small>
+            </div>
+
+            <!-- Pestaña 4: Recetas -->
+            <div class="tab-pane fade" id="recipes-pane" role="tabpanel">
+              <h5 class="fw-bold font-serif mb-3 text-dark">Cómo disfrutarlo en tu día a día</h5>
+              <div class="row g-4" id="pdp-recipes-container">
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <h6 class="fw-bold text-dark"><i class="bi bi-cup-straw text-success me-2"></i>Smoothie Energético Patagónico</h6>
+                    <p class="small text-muted mb-0">Agrega 2 cucharadas soperas a tu batido de leche de almendras con hielo y semillas de chía para un desayuno nutritivo sin azúcar refinada.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 bg-light rounded-3 border">
+                    <h6 class="fw-bold text-dark"><i class="bi bi-cake2 text-warning me-2"></i>Panqueques y Waffles sin TACC</h6>
+                    <p class="small text-muted mb-0">Reemplaza un tercio de la harina común en tu mezcla para obtener una textura dorada, aroma frutal y dulzor natural irresistible.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Productos Relacionados -->
+        <div class="mt-5 pt-3">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold text-dark mb-0 font-serif">Otros clientes también probaron</h3>
+            <a href="servicios.html" class="text-success text-decoration-none fw-semibold small">Ver todos <i class="bi bi-arrow-right"></i></a>
+          </div>
+          <div class="row g-4" id="pdp-related-products">
+            <!-- Renderizado dinámico -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="fvp-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" width="38" height="38" class="rounded-circle" />
+              <span class="fs-4 fw-bold font-serif text-white">Fruit Valley Patagonia</span>
+            </div>
+            <p class="text-white-50 small pe-lg-4">Pioneros en la elaboración de harinas puras de fruta y snacks deshidratados en el Alto Valle de Río Negro.</p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fvp-footer-title">Navegación</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="index.html">Inicio</a></li>
+              <li class="mb-2"><a href="nosotros.html">Quiénes Somos</a></li>
+              <li class="mb-2"><a href="servicios.html">Catálogo de Productos</a></li>
+              <li class="mb-2"><a href="galeria.html">Galería y Cosecha</a></li>
+              <li class="mb-2"><a href="blog.html">Blog y Recetas</a></li>
+              <li class="mb-2"><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6 class="fvp-footer-title">Categorías</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="servicios.html?cat=harinas">Harinas de Fruta</a></li>
+              <li class="mb-2"><a href="servicios.html?cat=chips-deshidratadas">Chips & Fruta Deshidratada</a></li>
+              <li class="mb-2"><a href="servicios.html?cat=granolas-barritas">Granolas & Barritas</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h6 class="fvp-footer-title">Contacto</h6>
+            <ul class="list-unstyled small text-white-50">
+              <li class="mb-2"><i class="bi bi-geo-alt text-warning me-2"></i>Luis Beltrán, Valle Medio, Río Negro</li>
+              <li class="mb-2"><i class="bi bi-envelope text-warning me-2"></i><a href="mailto:elianaenoriega@gmail.com" class="text-white-50">elianaenoriega@gmail.com</a></li>
+              <li class="mb-2"><i class="bi bi-whatsapp text-warning me-2"></i><a href="https://wa.me/5492984926445" target="_blank" class="text-white-50">+54 9 298 492-6445</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="fvp-footer-bottom d-flex justify-content-between align-items-center text-white-50">
+          <div>&copy; 2026 Fruit Valley Patagonia. Todos los derechos reservados.</div>
+          <div><a href="dashboard.html" class="text-white-50 small"><i class="bi bi-lock me-1"></i>Acceso Administración</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+
+    <!-- Script de Carga de Detalle del Producto -->
+    <script type="module">
+      import { API } from './js/api.js';
+      import { App } from './js/main.js';
+
+      let currentProduct = null;
+      let currentQty = 1;
+      let currentPriceMultiplier = 1;
+
+      async function initPDP() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id') || 'harina-durazno';
+
+        currentProduct = await API.getProductById(productId);
+        if (!currentProduct) {
+          // Si no existe, tomar el primero disponible
+          const all = await API.getProducts('all', '');
+          currentProduct = all[0];
+        }
+
+        if (!currentProduct) return;
+
+        // Título de la página y metadatos
+        document.title = `${currentProduct.name} | Fruit Valley Patagonia`;
+        document.getElementById('pdp-breadcrumb-name').textContent = currentProduct.name;
+        document.getElementById('pdp-title').textContent = currentProduct.name;
+        document.getElementById('pdp-category-name').textContent = currentProduct.categoryName;
+        document.getElementById('pdp-unit-weight').textContent = `Presentación: ${currentProduct.unit || currentProduct.netWeight}`;
+        document.getElementById('pdp-price').textContent = `$${currentProduct.price.toLocaleString('es-AR')}`;
+        document.getElementById('pdp-badge-tag').textContent = currentProduct.badge || "Patagonia Pura";
+
+        // Imagen Principal
+        const mainImg = document.getElementById('pdp-main-image');
+        mainImg.src = currentProduct.image;
+        mainImg.alt = currentProduct.name;
+
+        // Miniaturas
+        const thumbsContainer = document.getElementById('pdp-thumbs-container');
+        thumbsContainer.innerHTML = `
+          <img src="${currentProduct.image}" alt="${currentProduct.name}" class="fvp-pdp-thumb active" onclick="document.getElementById('pdp-main-image').src = this.src" />
+          <img src="/assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Línea de productos" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
+          <img src="/assets/aistudio/Chipsygranolas_0e089a2b.jpg" alt="Detalle empaque" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
+        `;
+
+        // Pestañas
+        document.getElementById('pdp-tab-desc').textContent = currentProduct.description;
+        document.getElementById('pdp-tab-ingredients').textContent = currentProduct.ingredients || "100% fruta natural deshidratada de la Patagonia sin aditivos.";
+
+        // Nutrición
+        const nutriTbody = document.getElementById('pdp-nutrition-tbody');
+        const nutri = currentProduct.nutrition || {};
+        nutriTbody.innerHTML = `
+          <tr><td class="fw-bold">Porción</td><td>${nutri.serving || '30 g'}</td></tr>
+          <tr><td class="fw-bold">Valor Energético</td><td>${nutri.calories || '95 kcal'}</td></tr>
+          <tr><td class="fw-bold">Proteínas</td><td>${nutri.proteins || '1.5 g'}</td></tr>
+          <tr><td class="fw-bold">Carbohidratos</td><td>${nutri.carbs || '22 g'}</td></tr>
+          <tr><td class="fw-bold">Fibra Alimentaria</td><td>${nutri.fiber || '4.5 g'}</td></tr>
+          <tr><td class="fw-bold">Grasas Totales</td><td>${nutri.fat || '0.2 g'}</td></tr>
+          <tr><td class="fw-bold">Sodio</td><td>0 mg (Libre de Sodio)</td></tr>
+        `;
+
+        // Selector de Cantidad
+        const qtyVal = document.getElementById('pdp-qty-val');
+        document.getElementById('pdp-qty-minus').addEventListener('click', () => {
+          if (currentQty > 1) {
+            currentQty--;
+            qtyVal.textContent = currentQty;
+          }
+        });
+        document.getElementById('pdp-qty-plus').addEventListener('click', () => {
+          currentQty++;
+          qtyVal.textContent = currentQty;
+        });
+
+        // Selector de Variantes
+        document.querySelectorAll('.variant-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.variant-btn').forEach(b => {
+              b.classList.remove('active', 'btn-outline-success');
+              b.classList.add('btn-outline-secondary');
+            });
+            btn.classList.add('active', 'btn-outline-success');
+            btn.classList.remove('btn-outline-secondary');
+
+            const variant = btn.dataset.variant;
+            if (variant === 'standard') {
+              currentPriceMultiplier = 1;
+              document.getElementById('pdp-price').textContent = `$${currentProduct.price.toLocaleString('es-AR')}`;
+            } else if (variant === 'pack3') {
+              currentPriceMultiplier = 2.7; // 10% off
+              document.getElementById('pdp-price').textContent = `$${Math.round(currentProduct.price * 2.7).toLocaleString('es-AR')}`;
+            } else if (variant === 'box') {
+              currentPriceMultiplier = 10; // 2 un. gratis
+              document.getElementById('pdp-price').textContent = `$${Math.round(currentProduct.price * 10).toLocaleString('es-AR')}`;
+            }
+          });
+        });
+
+        // Botón Agregar al Carrito
+        document.getElementById('pdp-add-to-cart-btn').addEventListener('click', () => {
+          App.addToCart(currentProduct, currentQty);
+        });
+
+        // Botón WhatsApp
+        document.getElementById('pdp-whatsapp-btn').addEventListener('click', () => {
+          const settings = API.getSettings();
+          const phone = (settings.whatsappNumber || "+5492984926445").replace(/[^0-9]/g, '');
+          const text = encodeURIComponent(`¡Hola! Deseo comprar ${currentQty} unidad(es) de ${currentProduct.name} ($${currentProduct.price} c/u) visto en la web de Fruit Valley Patagonia.`);
+          window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+        });
+
+        // Cargar Relacionados
+        loadRelated(currentProduct.category, currentProduct.id);
+      }
+
+      async function loadRelated(category, excludeId) {
+        const container = document.getElementById('pdp-related-products');
+        let products = await API.getProducts(category, '');
+        products = products.filter(p => p.id !== excludeId).slice(0, 3);
+
+        if (products.length === 0) {
+          const all = await API.getProducts('all', '');
+          products = all.filter(p => p.id !== excludeId).slice(0, 3);
+        }
+
+        let html = '';
+        products.forEach(p => {
+          html += `
+            <div class="col-md-4">
+              <div class="fvp-card">
+                <div class="fvp-card-img-wrapper">
+                  <img src="${p.image}" alt="${p.name}" class="fvp-card-img" />
+                </div>
+                <div class="fvp-card-body">
+                  <span class="fvp-card-category">${p.categoryName}</span>
+                  <h5 class="fvp-card-title"><a href="detalle.html?id=${p.id}">${p.name}</a></h5>
+                  <div class="fvp-card-footer">
+                    <span class="fvp-price">$${p.price.toLocaleString('es-AR')}</span>
+                    <a href="detalle.html?id=${p.id}" class="btn btn-sm btn-patagonia">Ver Ficha</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+      }
+
+      initPDP();
+    </script>
+  </body>
+</html>

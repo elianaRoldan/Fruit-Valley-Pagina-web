@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración | Fruit Valley Patagonia</title>
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-light">
+    <!-- Navbar del Administrador -->
+    <header class="sticky-top bg-white border-bottom shadow-sm">
+      <div class="container-fluid px-4 py-2 d-flex justify-content-between align-items-center">
+        <a class="fvp-brand" href="index.html">
+          <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
+          <div class="fvp-brand-text">
+            <span class="fvp-brand-title">Fruit Valley</span>
+            <span class="fvp-brand-subtitle">Panel de Control</span>
+          </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="servicios.html" class="btn btn-sm btn-outline-secondary d-none d-md-inline-flex align-items-center gap-1" target="_blank">
+            <i class="bi bi-box-arrow-up-right"></i>
+            <span>Ver Tienda Pública</span>
+          </a>
+          <div id="nav-user-container"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="py-4">
+      <div class="container-fluid px-4">
+        <!-- Encabezado de Página -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+          <div>
+            <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1 mb-1">
+              <i class="bi bi-shield-check me-1"></i>Sesión Administrativa Activa
+            </span>
+            <h1 class="h3 fw-bold text-dark mb-0 font-serif">Panel de Control & Inventario</h1>
+          </div>
+          <div class="d-flex gap-2">
+            <button class="btn btn-patagonia" id="btn-new-product">
+              <i class="bi bi-plus-circle me-1"></i>Nuevo Producto
+            </button>
+            <button class="btn btn-outline-secondary" id="btn-export-json" title="Descargar Respaldo JSON">
+              <i class="bi bi-download me-1"></i>Respaldar
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Tarjetas de Métricas (KPIs) -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="fvp-stat-box">
+              <span class="text-muted small text-uppercase fw-bold">Productos Activos</span>
+              <div class="fvp-stat-val" id="stat-total-products">--</div>
+              <small class="text-success"><i class="bi bi-arrow-up"></i> Catálogo completo</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="fvp-stat-box">
+              <span class="text-muted small text-uppercase fw-bold">Unidades en Stock</span>
+              <div class="fvp-stat-val" id="stat-total-stock">--</div>
+              <small class="text-muted">Inventario disponible</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="fvp-stat-box">
+              <span class="text-muted small text-uppercase fw-bold">Valor Inventario</span>
+              <div class="fvp-stat-val text-success" id="stat-inventory-val">--</div>
+              <small class="text-muted">Precio minorista estimado</small>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="fvp-stat-box">
+              <span class="text-muted small text-uppercase fw-bold">Consultas Pendientes</span>
+              <div class="fvp-stat-val text-warning" id="stat-pending-inquiries">--</div>
+              <small class="text-muted">Mensajes de clientes</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestañas Principales del Dashboard -->
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-5">
+          <div class="card-header bg-white border-bottom p-0">
+            <ul class="nav nav-tabs border-0 px-4 pt-2" id="dashboardTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active fw-bold py-3 text-dark border-0 border-bottom border-3 border-success" id="products-tab" data-bs-toggle="tab" data-bs-target="#products-pane" type="button" role="tab">
+                  <i class="bi bi-box-seam me-2"></i>Gestión de Productos
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-muted border-0" id="inquiries-tab" data-bs-toggle="tab" data-bs-target="#inquiries-pane" type="button" role="tab">
+                  <i class="bi bi-chat-left-dots me-2"></i>Consultas Recibidas
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-muted border-0" id="backend-tab" data-bs-toggle="tab" data-bs-target="#backend-pane" type="button" role="tab">
+                  <i class="bi bi-database-gear me-2"></i>Conexión Google Sheets / Backend
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link fw-bold py-3 text-muted border-0" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-pane" type="button" role="tab">
+                  <i class="bi bi-sliders me-2"></i>Configuración & Datos
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card-body p-4">
+            <div class="tab-content" id="dashboardTabsContent">
+              <!-- PESTAÑA 1: CRUD de Productos -->
+              <div class="tab-pane fade show active" id="products-pane" role="tabpanel">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                  <div class="position-relative" style="max-width: 380px; width: 100%;">
+                    <input type="text" id="table-search-input" class="form-control form-control-sm" placeholder="Filtrar por nombre o descripción...">
+                    <i class="bi bi-search position-absolute end-0 top-50 translate-middle-y me-2 text-muted small"></i>
+                  </div>
+                  <div class="small text-muted">
+                    Haz clic en <i class="bi bi-pencil-square text-secondary"></i> para editar o en <i class="bi bi-trash3 text-danger"></i> para eliminar.
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light small text-uppercase text-muted">
+                      <tr>
+                        <th style="width: 40px;">#</th>
+                        <th>Producto</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                        <th class="text-end">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dashboard-products-tbody">
+                      <!-- Renderizado dinámico -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- PESTAÑA 2: Consultas Recibidas -->
+              <div class="tab-pane fade" id="inquiries-pane" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h6 class="fw-bold text-dark mb-0">Mensajes enviados desde el formulario de contacto</h6>
+                  <span class="small text-muted">Actualización automática</span>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light small text-uppercase text-muted">
+                      <tr>
+                        <th>Fecha</th>
+                        <th>Contacto</th>
+                        <th>Tipo</th>
+                        <th>Asunto & Mensaje</th>
+                        <th>Estado</th>
+                        <th class="text-end">Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="dashboard-inquiries-tbody">
+                      <!-- Renderizado dinámico -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- PESTAÑA 3: Conexión Backend & Google Sheets -->
+              <div class="tab-pane fade" id="backend-pane" role="tabpanel">
+                <div class="row g-4">
+                  <div class="col-lg-7">
+                    <h5 class="fw-bold font-serif text-dark mb-2">Motor de Base de Datos y Persistencia</h5>
+                    <p class="text-muted small mb-4">
+                      Puedes operar de inmediato en modo <strong>LocalStorage autónomo</strong> o conectar tu propia hoja de cálculo en <strong>Google Sheets</strong> a través de <strong>Google Apps Script</strong>.
+                    </p>
+
+                    <!-- Selector de Modo -->
+                    <div class="mb-4 p-3 bg-light rounded-3 border">
+                      <label class="form-label fw-bold text-dark small mb-2">Seleccionar Proveedor Activo:</label>
+                      <div class="d-flex flex-column gap-2">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="backendMode" id="backend-mode-local" value="local" checked>
+                          <label class="form-check-label text-dark fw-semibold" for="backend-mode-local">
+                            1. Modo LocalStorage (Demostración Inmediata)
+                            <small class="text-muted d-block fw-normal">Funciona directamente en el navegador sin requerir credenciales externas. Ideal para pruebas y muestras rápidas.</small>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="backendMode" id="backend-mode-gas" value="google_apps_script">
+                          <label class="form-check-label text-dark fw-semibold" for="backend-mode-gas">
+                            2. Google Apps Script & Google Sheets (Backend Cloud Gratuito)
+                            <small class="text-muted d-block fw-normal">Conecta con tu propia planilla en Google Drive como base de datos viva.</small>
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="backendMode" id="backend-mode-firebase" value="firebase">
+                          <label class="form-check-label text-dark fw-semibold" for="backend-mode-firebase">
+                            3. Firebase Cloud Firestore (Preparado en arquitectura)
+                            <small class="text-muted d-block fw-normal">Configuración modular lista en <code>js/firebase-config.js</code>.</small>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Configuración URL Apps Script -->
+                    <div class="mb-3">
+                      <label for="input-apps-script-url" class="form-label fw-bold text-dark small">URL del Web App de Google Apps Script</label>
+                      <input type="url" class="form-control" id="input-apps-script-url" placeholder="https://script.google.com/macros/s/AKfycbx.../exec">
+                      <div class="form-text small">Pega aquí la URL provista al implementar como Web App en Apps Script.</div>
+                    </div>
+
+                    <!-- Teléfono de WhatsApp -->
+                    <div class="mb-4">
+                      <label for="input-whatsapp-num" class="form-label fw-bold text-dark small">Número de WhatsApp para Checkout de Pedidos</label>
+                      <input type="text" class="form-control" id="input-whatsapp-num" placeholder="+5492984926445" value="+5492984926445">
+                      <div class="form-text small">Incluye código de país y de área (ej: +5492984926445).</div>
+                    </div>
+
+                    <!-- Estado de Conexión -->
+                    <div id="connection-status-box" class="mb-4"></div>
+
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                      <button type="button" class="btn btn-outline-primary" id="btn-test-connection">
+                        <i class="bi bi-arrow-repeat me-1"></i>Probar Conexión
+                      </button>
+                      <button type="button" class="btn btn-outline-success" id="btn-setup-sheets">
+                        <i class="bi bi-magic me-1"></i>Crear / Sincronizar las 6 Hojas en Sheets
+                      </button>
+                      <button type="button" class="btn btn-patagonia" id="btn-save-settings">
+                        <i class="bi bi-floppy me-1"></i>Guardar Configuración
+                      </button>
+                    </div>
+
+                    <!-- Estructura de las 6 Hojas en el mismo Documento -->
+                    <div class="p-3 bg-white rounded-3 border">
+                      <h6 class="fw-bold text-dark mb-2 font-serif">
+                        <i class="bi bi-folder2-open text-success me-2"></i>Hojas del Documento Google Sheets
+                      </h6>
+                      <p class="small text-muted mb-3">Tu documento contiene las 6 hojas requeridas para la operación integral:</p>
+                      
+                      <div class="list-group list-group-flush small">
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">1. Productos</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: Producto, Precio, Descripción, Imagen, Stock, Oferta (11 productos oficiales)</div>
+                          </div>
+                          <a href="/backend/sheets/Productos.csv" download class="btn btn-sm btn-light border text-success"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">2. Usuarios</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Email, Telefono, TipoNegocio, FechaRegistro, Estado</div>
+                          </div>
+                          <a href="/backend/sheets/Usuarios.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">3. Consultas</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Fecha, Nombre, Email, Telefono, Tipo, Asunto, Mensaje, Estado</div>
+                          </div>
+                          <a href="/backend/sheets/Consultas.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">4. Categorias</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Slug, Descripcion, Orden, Activo</div>
+                          </div>
+                          <a href="/backend/sheets/Categorias.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">5. Configuracion</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: Clave, Valor, Descripcion, UltimaActualizacion</div>
+                          </div>
+                          <a href="/backend/sheets/Configuracion.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
+                          <div>
+                            <strong class="text-dark">6. Administradores</strong>
+                            <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Email, Rol, NivelAcceso, UltimoIngreso</div>
+                          </div>
+                          <a href="/backend/sheets/Administradores.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Guía Rápida de Google Apps Script -->
+                  <div class="col-lg-5">
+                    <div class="p-4 bg-light rounded-4 border">
+                      <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-file-earmark-spreadsheet-fill text-success fs-4"></i>
+                        <h6 class="fw-bold text-dark mb-0 font-serif">Cómo Conectar Google Sheets</h6>
+                      </div>
+                      <ol class="small text-muted ps-3 mb-3">
+                        <li class="mb-2">Abre una nueva hoja en <a href="https://sheets.new" target="_blank" class="text-success fw-bold">Google Sheets</a>.</li>
+                        <li class="mb-2">Ve a <strong>Extensiones &gt; Apps Script</strong>.</li>
+                        <li class="mb-2">Copia el contenido del archivo <code>backend/Code.gs</code> provisto en este proyecto y pégalo en el editor.</li>
+                        <li class="mb-2">Haz clic en <strong>Implementar &gt; Nueva implementación</strong>.</li>
+                        <li class="mb-2">Tipo: <strong>Aplicación web</strong>.</li>
+                        <li class="mb-2">Ejecutar como: <strong>Yo</strong>.</li>
+                        <li class="mb-2">Quién tiene acceso: <strong>Cualquier usuario</strong> (Anyone).</li>
+                        <li>Copia la URL que termina en <code>/exec</code> y pégala en el campo de la izquierda.</li>
+                      </ol>
+                      <div class="alert alert-success py-2 px-3 small mb-0">
+                        <i class="bi bi-check-circle-fill me-1"></i>
+                        <strong>Menú Inteligente:</strong> Al pegar el código, tu Google Sheets tendrá un nuevo menú superior <code>🌱 Fruit Valley &gt; 🚀 Inicializar Base de Datos</code> que crea y da formato a las 6 hojas automáticamente con un solo clic.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PESTAÑA 4: Mantenimiento y Respaldo -->
+              <div class="tab-pane fade" id="settings-pane" role="tabpanel">
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-4 border h-100">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-arrow-counterclockwise text-warning me-2"></i>Restablecer Catálogo</h6>
+                      <p class="small text-muted mb-3">
+                        Si has realizado pruebas o modificaciones y deseas volver al catálogo oficial de 11 productos de Fruit Valley Patagonia, pulsa este botón.
+                      </p>
+                      <button class="btn btn-sm btn-outline-warning" id="btn-reset-catalog">
+                        Restablecer Productos de Fábrica
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-4 border h-100">
+                      <h6 class="fw-bold text-dark mb-2"><i class="bi bi-filetype-json text-primary me-2"></i>Respaldo de Datos (JSON)</h6>
+                      <p class="small text-muted mb-3">
+                        Descarga una copia completa en formato JSON con todos los productos, consultas recibidas y configuraciones para su archivo o migración.
+                      </p>
+                      <button class="btn btn-sm btn-outline-primary" onclick="document.getElementById('btn-export-json').click()">
+                        Descargar Archivo JSON
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal de Creación / Edición de Producto -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+          <div class="modal-header border-bottom py-3">
+            <h5 class="modal-title font-serif fw-bold text-dark" id="productModalLabel">Nuevo Producto Natural</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <form id="product-form" class="needs-validation" novalidate>
+            <div class="modal-body p-4">
+              <input type="hidden" id="modal-prod-id">
+
+              <div class="row g-3">
+                <div class="col-md-8">
+                  <label for="modal-prod-name" class="form-label fw-bold text-dark small">Nombre del Producto *</label>
+                  <input type="text" class="form-control" id="modal-prod-name" placeholder="Ej: Harina de Manzana Patagónica" required>
+                  <div class="invalid-feedback small">El nombre es obligatorio.</div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="modal-prod-category" class="form-label fw-bold text-dark small">Categoría *</label>
+                  <select class="form-select" id="modal-prod-category" required>
+                    <option value="harinas">Harinas de Fruta</option>
+                    <option value="chips-deshidratadas">Chips & Deshidratados</option>
+                    <option value="granolas-barritas">Granolas & Barritas</option>
+                    <option value="polvos-mermeladas">Polvos & Mermeladas</option>
+                    <option value="packs">Packs Especiales</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="modal-prod-price" class="form-label fw-bold text-dark small">Precio (ARS) *</label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" id="modal-prod-price" min="0" placeholder="3200" required>
+                  </div>
+                  <div class="invalid-feedback small">Ingresa un precio válido.</div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="modal-prod-stock" class="form-label fw-bold text-dark small">Stock (Unidades) *</label>
+                  <input type="number" class="form-control" id="modal-prod-stock" min="0" placeholder="25" required>
+                  <div class="invalid-feedback small">Ingresa la cantidad en stock.</div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="modal-prod-unit" class="form-label fw-bold text-dark small">Presentación / Peso *</label>
+                  <input type="text" class="form-control" id="modal-prod-unit" placeholder="Ej: doypack 250 g" required>
+                  <div class="invalid-feedback small">Especifica la presentación.</div>
+                </div>
+
+                <div class="col-md-8">
+                  <label for="modal-prod-image" class="form-label fw-bold text-dark small">Ruta de Imagen *</label>
+                  <input type="text" class="form-control" id="modal-prod-image" placeholder="/assets/aistudio/... o URL" required>
+                  <div class="form-text small">Puedes usar una imagen de <code>/assets/aistudio/</code> o una URL pública.</div>
+                </div>
+
+                <div class="col-md-4">
+                  <label for="modal-prod-badge" class="form-label fw-bold text-dark small">Etiqueta / Badge</label>
+                  <input type="text" class="form-control" id="modal-prod-badge" placeholder="Ej: Sin Gluten, Más Vendido">
+                </div>
+
+                <div class="col-12">
+                  <label for="modal-prod-desc" class="form-label fw-bold text-dark small">Descripción Comercial *</label>
+                  <textarea class="form-control" id="modal-prod-desc" rows="3" placeholder="Describe los beneficios, características y textura del producto..." required></textarea>
+                  <div class="invalid-feedback small">Ingresa una descripción.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="modal-prod-ingredients" class="form-label fw-bold text-dark small">Ingredientes Limpios</label>
+                  <input type="text" class="form-control" id="modal-prod-ingredients" placeholder="Ej: 100% manzana deshidratada y molida finamente.">
+                </div>
+
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="modal-prod-featured">
+                    <label class="form-check-label text-dark fw-semibold small" for="modal-prod-featured">
+                      Mostrar como Producto Destacado en la Página de Inicio
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer border-top py-2 px-4 bg-light">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-patagonia btn-sm">Guardar Producto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Módulo del Dashboard -->
+    <script type="module" src="/js/dashboard.js"></script>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

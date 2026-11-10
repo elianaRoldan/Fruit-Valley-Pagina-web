@@ -1,0 +1,6 @@
+﻿ID,Nombre,Slug,Descripcion,Orden,Activo
+CAT-01,Harinas de Fruta,harinas,Harinas 100% de fruta molidas a baja temperatura sin gluten,1,SI
+CAT-02,Chips & Deshidratados,chips-deshidratadas,Rodajas finas crocantes sin azúcares añadidos,2,SI
+CAT-03,Granolas & Barritas,granolas-barritas,Mezclas energéticas con cereales integrales y fruta,3,SI
+CAT-04,Polvos & Mermeladas,polvos-mermeladas,Fruta molida soluble y mermeladas con trozos visibles,4,SI
+CAT-05,Packs Especiales,packs,Combos de degustación y ahorro familiar,5,SI

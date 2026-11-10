@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiénes Somos | Fruit Valley Patagonia</title>
+    <meta name="description" content="Conoce la historia, el origen y el proceso artesanal de Fruit Valley Patagonia en el Alto Valle de Río Negro. Fruta limpia, agua pura de deshielo y agricultura consciente." />
+    <meta property="og:title" content="Quiénes Somos | Fruit Valley Patagonia" />
+    <meta property="og:description" content="Nacimos en el corazón del Alto Valle de Río Negro para transformar fruta pura en alimentos nutritivos y deliciosos." />
+    <meta property="og:image" content="/assets/aistudio/Todoslosproductos_21bbed5e.jpg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon Oficial -->
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+    <!-- Bootstrap 5 & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <!-- Top Announcement Bar -->
+    <div class="fvp-announcement-bar">
+      <span>🏔️ Sabores reales de nuestra tierra patagónica · Envíos a todo el país · Código: <strong>PATAGONIA10</strong></span>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg fvp-navbar">
+        <div class="container">
+          <a class="fvp-brand" href="index.html">
+            <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia Logo" class="fvp-brand-logo" />
+            <div class="fvp-brand-text">
+              <span class="fvp-brand-title">Fruit Valley</span>
+              <span class="fvp-brand-subtitle">Patagonia</span>
+            </div>
+          </a>
+
+          <div class="d-flex align-items-center gap-2 d-lg-none ms-auto me-2">
+            <button class="btn btn-sm btn-outline-secondary btn-search-trigger" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Buscar">
+              <i class="bi bi-search"></i>
+            </button>
+            <button class="btn btn-sm btn-patagonia position-relative cart-toggle-btn" aria-label="Ver Canasta">
+              <i class="bi bi-bag"></i>
+              <span class="cart-count-badge fvp-cart-count-badge" style="display: none;">0</span>
+            </button>
+          </div>
+
+          <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+            <ul class="navbar-nav gap-lg-2 py-3 py-lg-0">
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link active" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="servicios.html">Productos</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="galeria.html">Galería</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="blog.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link fvp-nav-link" href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="d-none d-lg-flex align-items-center gap-3">
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 py-1 btn-search-trigger d-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <i class="bi bi-search text-muted"></i>
+              <span class="small text-muted">Buscar...</span>
+            </button>
+            <button class="btn btn-patagonia position-relative cart-toggle-btn d-flex align-items-center gap-2">
+              <i class="bi bi-bag-heart"></i>
+              <span class="d-none d-xl-inline small">Canasta</span>
+              <span class="cart-count-badge fvp-cart-count-badge" style="display: none;">0</span>
+            </button>
+            <div id="nav-user-container"></div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Page Header -->
+      <section class="py-5 bg-white border-bottom">
+        <div class="container py-3">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small">
+              <li class="breadcrumb-item"><a href="index.html" class="text-success text-decoration-none">Inicio</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Quiénes Somos</li>
+            </ol>
+          </nav>
+          <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+              <span class="text-uppercase text-success fw-bold small">Nuestra Identidad</span>
+              <h1 class="display-5 fw-bold text-dark mt-1 mb-3">Naturaleza patagónica en cada receta.</h1>
+              <p class="lead text-muted">
+                Fruit Valley Patagonia nació con una misión sencilla pero transformadora: honrar la riqueza frutícola del Alto Valle de Río Negro, creando alimentos 100% naturales, sin aditivos ni conservantes químicos.
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <div class="d-inline-flex flex-column p-3 bg-light rounded-4 border text-start">
+                <span class="small text-muted">Ubicación de Origen</span>
+                <strong class="text-dark fs-6"><i class="bi bi-geo-alt text-success me-1"></i>Alto Valle, Río Negro</strong>
+                <span class="small text-muted mt-2">Altitud Media: 300 m.s.n.m.</span>
+                <span class="small text-muted">Clima: Valle templado árido</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- La Historia y el Valle -->
+      <section class="py-5" style="background-color: var(--fvp-sand);">
+        <div class="container py-3">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="rounded-4 overflow-hidden shadow-lg border">
+                <img src="/assets/aistudio/Chipsygranolas_0e089a2b.jpg" alt="Cosecha y empaques en el valle patagónico" class="img-fluid w-100" />
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <span class="text-uppercase text-muted fw-bold small">El Origen</span>
+              <h2 class="display-6 fw-bold mb-3 text-dark">Donde el agua de deshielo abraza la tierra.</h2>
+              <p class="text-muted">
+                El Alto Valle de Río Negro posee condiciones agroclimáticas extraordinarias: una gran amplitud térmica entre el día y la noche, abundante radiación solar y canales históricos de riego alimentados directamente por los ríos Limay y Neuquén.
+              </p>
+              <p class="text-muted">
+                Este ecosistema único permite que manzanas, peras y duraznos alcancen una concentración de azúcares naturales, minerales y fragancias que difícilmente se repiten en otra región del mundo.
+              </p>
+              <div class="p-3 bg-white rounded-3 border-start border-4 border-success mt-4">
+                <p class="fst-italic text-dark mb-0 small">
+                  "No modificamos lo que la naturaleza hace perfecto. Nuestro trabajo consiste en extraer el agua con delicadeza para concentrar todo el poder nutricional de la fruta fresca."
+                </p>
+                <small class="text-muted fw-bold d-block mt-1">— Equipo Fundador de Fruit Valley</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- El Proceso Artesanal (Paso a Paso) -->
+      <section class="py-5 bg-white">
+        <div class="container py-3">
+          <div class="text-center max-w-2xl mx-auto mb-5">
+            <span class="text-uppercase text-success fw-bold small">Trazabilidad Total</span>
+            <h2 class="display-6 fw-bold mb-3">De la chacra a tu mesa: 5 pasos transparentes</h2>
+            <p class="text-muted">Garantizamos calidad microbiológica y preservación de nutrientes en cada lote.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg">
+              <div class="p-4 bg-light rounded-4 h-100 border">
+                <div class="fw-bold font-serif fs-2 text-success mb-2">01</div>
+                <h5 class="fw-bold text-dark mb-2">Cosecha a Mano</h5>
+                <p class="text-muted small mb-0">Seleccionamos cada fruta en su punto óptimo de maduración en huertos patagónicos certificados.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="p-4 bg-light rounded-4 h-100 border">
+                <div class="fw-bold font-serif fs-2 text-success mb-2">02</div>
+                <h5 class="fw-bold text-dark mb-2">Lavado & Rodajas</h5>
+                <p class="text-muted small mb-0">Lavado con agua purificada y corte milimétrico para garantizar un secado parejo y uniforme.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="p-4 bg-light rounded-4 h-100 border">
+                <div class="fw-bold font-serif fs-2 text-success mb-2">03</div>
+                <h5 class="fw-bold text-dark mb-2">Secado &lt; 45°C</h5>
+                <p class="text-muted small mb-0">Deshidratado al vacío a baja temperatura que mantiene intactas las vitaminas C, A y antioxidantes.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="p-4 bg-light rounded-4 h-100 border">
+                <div class="fw-bold font-serif fs-2 text-success mb-2">04</div>
+                <h5 class="fw-bold text-dark mb-2">Molienda Criogénica</h5>
+                <p class="text-muted small mb-0">Para nuestras harinas y polvos, molemos suavemente sin fricción térmica para lograr sedosidad.</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg">
+              <div class="p-4 bg-light rounded-4 h-100 border">
+                <div class="fw-bold font-serif fs-2 text-success mb-2">05</div>
+                <h5 class="fw-bold text-dark mb-2">Envasado Zipper</h5>
+                <p class="text-muted small mb-0">Doypack barrera trilaminada con cierre reutilizable que preserva el aroma y la textura crujiente.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Valores y Compromiso Social -->
+      <section class="py-5" style="background-color: var(--fvp-sand);">
+        <div class="container py-3">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <span class="text-uppercase text-muted fw-bold small">Sustentabilidad Activa</span>
+              <h2 class="display-6 fw-bold mb-3 text-dark">Economía circular y desperdicio cero</h2>
+              <p class="text-muted">
+                En la fruticultura tradicional, miles de toneladas de fruta deliciosa se descartan únicamente por razones estéticas (calibre pequeño o imperfecciones en la piel).
+              </p>
+              <p class="text-muted">
+                En Fruit Valley Patagonia revalorizamos el 100% de esta fruta de primera calidad organoléptica, transformándola en harinas, chips y granolas. Así protegemos el trabajo de las familias productoras locales y reducimos la huella ambiental.
+              </p>
+              <div class="d-flex gap-3 mt-4">
+                <a href="servicios.html" class="btn btn-patagonia">Descubrir Productos</a>
+                <a href="contacto.html" class="btn btn-outline-secondary">Conocer la Planta</a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="rounded-4 overflow-hidden shadow-lg border">
+                <img src="/assets/aistudio/MixdeHarina_95112a5b.jpg" alt="Muestras de Harinas Naturales de Fruit Valley" class="img-fluid w-100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="fvp-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" width="38" height="38" class="rounded-circle" />
+              <span class="fs-4 fw-bold font-serif text-white">Fruit Valley Patagonia</span>
+            </div>
+            <p class="text-white-50 small pe-lg-4">
+              Pioneros en la elaboración de harinas puras de fruta y snacks deshidratados en el Alto Valle de Río Negro.
+            </p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fvp-footer-title">Navegación</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="index.html">Inicio</a></li>
+              <li class="mb-2"><a href="nosotros.html">Quiénes Somos</a></li>
+              <li class="mb-2"><a href="servicios.html">Catálogo de Productos</a></li>
+              <li class="mb-2"><a href="galeria.html">Galería y Cosecha</a></li>
+              <li class="mb-2"><a href="blog.html">Blog y Recetas</a></li>
+              <li class="mb-2"><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-3">
+            <h6 class="fvp-footer-title">Categorías</h6>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="servicios.html?cat=harinas">Harinas de Fruta</a></li>
+              <li class="mb-2"><a href="servicios.html?cat=chips-deshidratadas">Chips & Fruta Deshidratada</a></li>
+              <li class="mb-2"><a href="servicios.html?cat=granolas-barritas">Granolas & Barritas</a></li>
+              <li class="mb-2"><a href="servicios.html?cat=polvos-mermeladas">Polvos & Mermeladas</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <h6 class="fvp-footer-title">Contacto</h6>
+            <ul class="list-unstyled small text-white-50">
+              <li class="mb-2"><i class="bi bi-geo-alt text-warning me-2"></i>Luis Beltrán, Valle Medio, Río Negro</li>
+              <li class="mb-2"><i class="bi bi-envelope text-warning me-2"></i><a href="mailto:elianaenoriega@gmail.com" class="text-white-50">elianaenoriega@gmail.com</a></li>
+              <li class="mb-2"><i class="bi bi-whatsapp text-warning me-2"></i><a href="https://wa.me/5492984926445" target="_blank" class="text-white-50">+54 9 298 492-6445</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="fvp-footer-bottom d-flex justify-content-between align-items-center text-white-50">
+          <div>&copy; 2026 Fruit Valley Patagonia. Todos los derechos reservados.</div>
+          <div><a href="dashboard.html" class="text-white-50 small"><i class="bi bi-lock me-1"></i>Acceso Administración</a></div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>
