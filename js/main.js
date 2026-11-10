@@ -355,10 +355,10 @@ export const App = {
       itemsHTML += `
         <div class="fvp-cart-item">
           <img
-            src="${item.image || '/assets/icons/favicon.svg'}"
+            src="${item.image || './assets/icons/favicon.svg'}"
             alt="${item.name}"
             class="fvp-cart-item-img"
-            onerror="this.onerror=null;this.src='/assets/icons/favicon.svg'">
+            onerror="this.onerror=null;this.src='./assets/icons/favicon.svg'">
 
           <div class="flex-grow-1 min-w-0">
             <div class="d-flex justify-content-between align-items-start mb-1">

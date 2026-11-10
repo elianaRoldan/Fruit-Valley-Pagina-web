@@ -394,7 +394,7 @@ h1, h2 {
    ========================================================================== */
 .fvp-hero {
   position: relative;
-  background: linear-gradient(135deg, rgba(28, 58, 39, 0.96) 0%, rgba(18, 37, 25, 0.98) 100%), url('/assets/aistudio/Todoslosproductos_21bbed5e.jpg');
+  background: linear-gradient(135deg, rgba(28, 58, 39, 0.96) 0%, rgba(18, 37, 25, 0.98) 100%), url('../assets/aistudio/Todoslosproductos_21bbed5e.jpg');
   background-size: cover;
   background-position: center;
   color: #FFFFFF;

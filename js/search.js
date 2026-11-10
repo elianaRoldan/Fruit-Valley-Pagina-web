@@ -133,7 +133,7 @@ export const Search = {
     products.forEach(p => {
       html += `
         <a href="detalle.html?id=${p.id}" class="list-group-item list-group-item-action d-flex align-items-center gap-3 p-3 border-0 border-bottom rounded-3 mb-1">
-          <img src="${p.image}" alt="${p.name}" class="fvp-search-result-img shadow-sm" onerror="this.src='/assets/icons/favicon.svg'">
+          <img src="${p.image}" alt="${p.name}" class="fvp-search-result-img shadow-sm" onerror="this.src='./assets/icons/favicon.svg'">
           <div class="flex-grow-1 min-w-0">
             <div class="d-flex justify-content-between align-items-baseline">
               <h6 class="mb-1 text-dark fw-bold text-truncate">${p.name}</h6>

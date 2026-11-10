@@ -70,7 +70,7 @@ export const Dashboard = {
           <td class="text-muted small align-middle">${index + 1}</td>
           <td class="align-middle">
             <div class="d-flex align-items-center gap-2">
-              <img src="${p.image}" alt="${p.name}" class="rounded border" style="width: 44px; height: 44px; object-fit: contain; background: #F8F5EE;" onerror="this.src='/assets/icons/favicon.svg'">
+              <img src="${p.image}" alt="${p.name}" class="rounded border" style="width: 44px; height: 44px; object-fit: contain; background: #F8F5EE;" onerror="this.src='./assets/icons/favicon.svg'">
               <div>
                 <strong class="d-block text-dark">${p.name}</strong>
                 <small class="text-muted">${p.unit || p.netWeight}</small>
@@ -179,7 +179,7 @@ export const Dashboard = {
       stock: parseInt(document.getElementById('modal-prod-stock').value, 10) || 0,
       unit: document.getElementById('modal-prod-unit').value.trim(),
       netWeight: document.getElementById('modal-prod-unit').value.trim(),
-      image: document.getElementById('modal-prod-image').value.trim() || '/assets/aistudio/Todoslosproductos_21bbed5e.jpg',
+      image: document.getElementById('modal-prod-image').value.trim() || './assets/aistudio/Todoslosproductos_21bbed5e.jpg',
       badge: document.getElementById('modal-prod-badge').value.trim(),
       description: document.getElementById('modal-prod-desc').value.trim(),
       ingredients: document.getElementById('modal-prod-ingredients').value.trim(),

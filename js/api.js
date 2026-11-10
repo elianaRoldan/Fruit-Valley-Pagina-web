@@ -8,7 +8,7 @@
  * Mapea nombres de archivos de imagen de la hoja de cálculo a los assets del proyecto
  */
 export function resolveProductImage(imgName) {
-  const fallback = '/assets/aistudio/Todoslosproductos.jpg';
+  const fallback = './assets/aistudio/Todoslosproductos.jpg';
   if (!imgName) return fallback;
   const raw = String(imgName).trim();
   if (/^(https?:|data:|blob:)/i.test(raw)) return raw;
@@ -34,19 +34,19 @@ export function resolveProductImage(imgName) {
     'Todoslosproductos_21bbed5e.jpg': 'Todoslosproductos_21bbed5e.jpg'
   };
   const exact = files[clean];
-  if (exact) return `/assets/aistudio/${exact}`;
+  if (exact) return `./assets/aistudio/${exact}`;
   const lower = clean.toLowerCase();
-  if (lower.includes('manzana') && lower.includes('harina')) return '/assets/aistudio/Empaque_r_stico_de_harina_de_manzana_Patagonia_cc768b53.png';
-  if (lower.includes('pera') && lower.includes('harina')) return '/assets/aistudio/Mockup_de_Harina_de_Pera_Patag_nica_34e1eaa3.png';
-  if (lower.includes('durazno') && lower.includes('harina')) return '/assets/aistudio/Empaque_de_Harina_de_Durazno_Patag_nica_18aca7c3.png';
-  if (lower.includes('mix') && lower.includes('harina')) return '/assets/aistudio/MixdeHarina_95112a5b.jpg';
-  if (lower.includes('manzana') && (lower.includes('chip') || lower.includes('deshidrat'))) return '/assets/aistudio/Chipsdemanzana_0640116c.jpg';
-  if (lower.includes('pera') && (lower.includes('chip') || lower.includes('rodaja') || lower.includes('deshidrat'))) return '/assets/aistudio/Chipsdepera_0abe10cb.jpg';
-  if (lower.includes('granola')) return '/assets/aistudio/Granolas_4453523a.jpg';
-  if (lower.includes('mix') && lower.includes('fruta')) return '/assets/aistudio/Chipsmixtos_8f6c471d.jpg';
-  if (lower.includes('barrita')) return '/assets/aistudio/Barritas_e2419f8e.jpg';
-  if (lower.includes('polvo')) return '/assets/aistudio/PolvodeFrutaparabatidos_251e8f5e.jpg';
-  if (lower.includes('mermelada')) return '/assets/aistudio/Mermelada_9c46b3d7.jpg';
+  if (lower.includes('manzana') && lower.includes('harina')) return './assets/aistudio/Empaque_r_stico_de_harina_de_manzana_Patagonia_cc768b53.png';
+  if (lower.includes('pera') && lower.includes('harina')) return './assets/aistudio/Mockup_de_Harina_de_Pera_Patag_nica_34e1eaa3.png';
+  if (lower.includes('durazno') && lower.includes('harina')) return './assets/aistudio/Empaque_de_Harina_de_Durazno_Patag_nica_18aca7c3.png';
+  if (lower.includes('mix') && lower.includes('harina')) return './assets/aistudio/MixdeHarina_95112a5b.jpg';
+  if (lower.includes('manzana') && (lower.includes('chip') || lower.includes('deshidrat'))) return './assets/aistudio/Chipsdemanzana_0640116c.jpg';
+  if (lower.includes('pera') && (lower.includes('chip') || lower.includes('rodaja') || lower.includes('deshidrat'))) return './assets/aistudio/Chipsdepera_0abe10cb.jpg';
+  if (lower.includes('granola')) return './assets/aistudio/Granolas_4453523a.jpg';
+  if (lower.includes('mix') && lower.includes('fruta')) return './assets/aistudio/Chipsmixtos_8f6c471d.jpg';
+  if (lower.includes('barrita')) return './assets/aistudio/Barritas_e2419f8e.jpg';
+  if (lower.includes('polvo')) return './assets/aistudio/PolvodeFrutaparabatidos_251e8f5e.jpg';
+  if (lower.includes('mermelada')) return './assets/aistudio/Mermelada_9c46b3d7.jpg';
   return fallback;
 }
 
