@@ -8,8 +8,8 @@
     <meta property="og:title" content="Detalle de Producto | Fruit Valley Patagonia" />
     <meta property="og:type" content="product" />
 
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="./public/favicon.svg" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -26,7 +26,7 @@
       <nav class="navbar navbar-expand-lg fvp-navbar">
         <div class="container">
           <a class="fvp-brand" href="index.html">
-            <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
+            <img src="./assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
             <div class="fvp-brand-text">
               <span class="fvp-brand-title">Fruit Valley</span>
               <span class="fvp-brand-subtitle">Patagonia</span>
@@ -90,7 +90,7 @@
           <!-- Columna Izquierda: Galería de Imágenes -->
           <div class="col-lg-6">
             <div class="fvp-pdp-gallery-main shadow-sm">
-              <img id="pdp-main-image" src="/assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Producto Fruit Valley Patagonia" class="img-fluid" />
+              <img id="pdp-main-image" src="./assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Producto Fruit Valley Patagonia" class="img-fluid" />
             </div>
 
             <!-- Miniaturas -->
@@ -279,7 +279,7 @@
         <div class="row g-4">
           <div class="col-lg-4">
             <div class="d-flex align-items-center gap-2 mb-3">
-              <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" width="38" height="38" class="rounded-circle" />
+              <img src="./assets/icons/favicon.svg" alt="Fruit Valley Patagonia" width="38" height="38" class="rounded-circle" />
               <span class="fs-4 fw-bold font-serif text-white">Fruit Valley Patagonia</span>
             </div>
             <p class="text-white-50 small pe-lg-4">Pioneros en la elaboración de harinas puras de fruta y snacks deshidratados en el Alto Valle de Río Negro.</p>
@@ -320,7 +320,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 
     <!-- Script de Carga de Detalle del Producto -->
     <script type="module">
@@ -362,8 +362,8 @@
         const thumbsContainer = document.getElementById('pdp-thumbs-container');
         thumbsContainer.innerHTML = `
           <img src="${currentProduct.image}" alt="${currentProduct.name}" class="fvp-pdp-thumb active" onclick="document.getElementById('pdp-main-image').src = this.src" />
-          <img src="/assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Línea de productos" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
-          <img src="/assets/aistudio/Chipsygranolas_0e089a2b.jpg" alt="Detalle empaque" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
+          <img src="./assets/aistudio/Todoslosproductos_21bbed5e.jpg" alt="Línea de productos" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
+          <img src="./assets/aistudio/Chipsygranolas_0e089a2b.jpg" alt="Detalle empaque" class="fvp-pdp-thumb" onclick="document.getElementById('pdp-main-image').src = this.src" />
         `;
 
         // Pestañas

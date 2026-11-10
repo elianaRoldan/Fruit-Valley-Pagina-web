@@ -6,8 +6,8 @@
     <title>Panel de Administración | Fruit Valley Patagonia</title>
     <meta name="robots" content="noindex, nofollow" />
 
-    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="./public/favicon.svg" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
@@ -18,7 +18,7 @@
     <header class="sticky-top bg-white border-bottom shadow-sm">
       <div class="container-fluid px-4 py-2 d-flex justify-content-between align-items-center">
         <a class="fvp-brand" href="index.html">
-          <img src="/assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
+          <img src="./assets/icons/favicon.svg" alt="Fruit Valley Patagonia" class="fvp-brand-logo" />
           <div class="fvp-brand-text">
             <span class="fvp-brand-title">Fruit Valley</span>
             <span class="fvp-brand-subtitle">Panel de Control</span>
@@ -253,42 +253,42 @@
                             <strong class="text-dark">1. Productos</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: Producto, Precio, Descripción, Imagen, Stock, Oferta (11 productos oficiales)</div>
                           </div>
-                          <a href="/backend/sheets/Productos.csv" download class="btn btn-sm btn-light border text-success"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Productos.csv" download class="btn btn-sm btn-light border text-success"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
                           <div>
                             <strong class="text-dark">2. Usuarios</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Email, Telefono, TipoNegocio, FechaRegistro, Estado</div>
                           </div>
-                          <a href="/backend/sheets/Usuarios.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Usuarios.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
                           <div>
                             <strong class="text-dark">3. Consultas</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Fecha, Nombre, Email, Telefono, Tipo, Asunto, Mensaje, Estado</div>
                           </div>
-                          <a href="/backend/sheets/Consultas.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Consultas.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
                           <div>
                             <strong class="text-dark">4. Categorias</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Slug, Descripcion, Orden, Activo</div>
                           </div>
-                          <a href="/backend/sheets/Categorias.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Categorias.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
                           <div>
                             <strong class="text-dark">5. Configuracion</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: Clave, Valor, Descripcion, UltimaActualizacion</div>
                           </div>
-                          <a href="/backend/sheets/Configuracion.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Configuracion.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                         <div class="list-group-item d-flex justify-content-between align-items-center px-0 py-2">
                           <div>
                             <strong class="text-dark">6. Administradores</strong>
                             <div class="text-muted" style="font-size: 0.75rem;">Columnas: ID, Nombre, Email, Rol, NivelAcceso, UltimoIngreso</div>
                           </div>
-                          <a href="/backend/sheets/Administradores.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
+                          <a href="./backend/sheets/Administradores.csv" download class="btn btn-sm btn-light border text-secondary"><i class="bi bi-download me-1"></i>CSV</a>
                         </div>
                       </div>
                     </div>
@@ -406,7 +406,7 @@
 
                 <div class="col-md-8">
                   <label for="modal-prod-image" class="form-label fw-bold text-dark small">Ruta de Imagen *</label>
-                  <input type="text" class="form-control" id="modal-prod-image" placeholder="/assets/aistudio/... o URL" required>
+                  <input type="text" class="form-control" id="modal-prod-image" placeholder="./assets/aistudio/... o URL" required>
                   <div class="form-text small">Puedes usar una imagen de <code>/assets/aistudio/</code> o una URL pública.</div>
                 </div>
 
@@ -449,7 +449,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Módulo del Dashboard -->
-    <script type="module" src="/js/dashboard.js"></script>
-    <script type="module" src="/js/main.js"></script>
+    <script type="module" src="./js/dashboard.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
