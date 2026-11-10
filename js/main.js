@@ -150,10 +150,9 @@ export const App = {
     this.openCart();
   },
 
-  updateQuantity(productId, delta) {
-    const item = this.cart.find(i => i.id === productId);
-    if (!item) return;
-
+ const item = this.cart.find(
+  i => String(i.id) === String(productId)
+);
     item.quantity += delta;
 
     if (item.quantity <= 0) {
@@ -165,9 +164,18 @@ export const App = {
   },
 
   removeFromCart(productId) {
-    this.cart = this.cart.filter(
-      i => i.id !== productId
-    );
+  this.cart = this.cart.filter(
+    item => String(item.id) !== String(productId)
+  );
+
+  this.saveCart();
+
+  this.showToast(
+    'Carrito Actualizado',
+    'Producto removido del pedido.',
+    'info'
+  );
+},
 
     this.saveCart();
 
@@ -439,6 +447,16 @@ export const App = {
     `;
 
     bodyContainer.innerHTML = itemsHTML + couponHTML;
+    bodyContainer.insertAdjacentHTML(
+  'beforeend',
+  `<button
+    type="button"
+    id="btn-clear-cart"
+    class="btn btn-outline-danger btn-sm w-100 mt-2">
+    <i class="bi bi-trash3 me-2"></i>
+    Vaciar toda la canasta
+  </button>`
+);
 
     const subtotal = this.getCartSubtotal();
     const total = this.getCartTotal();
@@ -509,6 +527,16 @@ export const App = {
         this.removeFromCart(btn.dataset.id);
       });
     });
+    document.getElementById('btn-clear-cart')
+  ?.addEventListener('click', () => {
+    this.clearCart();
+
+    this.showToast(
+      'Canasta vaciada',
+      'Se eliminaron todos los productos.',
+      'info'
+    );
+  });
 
     const couponBtn = document.getElementById('btn-apply-coupon');
     const couponInput = document.getElementById('cart-coupon-input');
