@@ -318,7 +318,7 @@ const STORAGE_KEYS = {
 // Configuración por defecto
 const DEFAULT_SETTINGS = {
   backendMode: "google_apps_script", // 'local' | 'google_apps_script' | 'firebase'
-  appsScriptUrl: "https://script.google.com/macros/s/AKfycbyB326ldIfOuZAvn-7WUgBWHzET2ThPpTi5FxPvT9vP2Dkd1bT-Dyn8ehNaLcUKjBM/exec", // URL provista al publicar el Web App en Google Apps Script
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbz5O35-Cny-LIZbveJYew_zBoFl9uBz1W3U15uyaYF0OOjAAKAklnxlywqOhQwNC77tLQ/exec", // URL provista al publicar el Web App en Google Apps Script
   whatsappNumber: "+5492984926445", // Número oficial para checkout y atención
   contactEmail: "elianaenoriega@gmail.com", // Email oficial para consultas
   storeName: "Fruit Valley Patagonia",
